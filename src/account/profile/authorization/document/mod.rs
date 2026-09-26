@@ -1,6 +1,6 @@
 pub mod issuer;
 
-use std::range::Range;
+use std::ops::Range;
 
 use time::Date;
 
@@ -45,8 +45,8 @@ impl Document {
         self.number.as_deref()
     }
 
-    /// Returns a copy of the contained `Option` with a possible copy of the validity range.
-    pub fn validity(&self) -> Option<Range<Date>> {
-        self.validity
+    /// Returns a copy of the contained `Option` with a possible reference to the validity range.
+    pub fn validity(&self) -> Option<&Range<Date>> {
+        self.validity.as_ref()
     }
 }
