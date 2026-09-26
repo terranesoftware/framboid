@@ -2,11 +2,13 @@ pub mod issuer;
 
 use std::ops::Range;
 
+use serde::{Deserialize, Serialize};
 use time::Date;
 
 use crate::account::profile::authorization::document::issuer::Issuer;
 
 /// A document authorizing a person.
+#[derive(Serialize, Deserialize)]
 pub struct Document {
     issuer: Issuer,
     name: String,

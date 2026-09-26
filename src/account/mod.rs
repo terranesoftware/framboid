@@ -5,11 +5,13 @@ pub mod profile;
 
 use blake3::Hash;
 use indexmap::IndexMap;
+use serde::{Deserialize, Serialize};
 use time::Timestamp;
 
 use crate::{account::{dossier::Dossier, profile::Profile}, keys::account::AccountKey};
 
 /// A person's complete, accumulating record.
+#[derive(Serialize, Deserialize)]
 pub struct Varve {
     account: AccountKey,
     dossiers: IndexMap<Hash, Dossier>,

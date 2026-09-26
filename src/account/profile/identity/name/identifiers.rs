@@ -1,4 +1,7 @@
+use serde::{Deserialize, Serialize};
+
 /// A name's primary and optional secondary identifiers.
+#[derive(Serialize, Deserialize)]
 pub struct Identifiers {
     primary: String,
     secondary: Option<String>

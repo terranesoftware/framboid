@@ -1,6 +1,9 @@
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::location::Location;
 
 /// A party that issued a `Document`.
+#[derive(Serialize, Deserialize)]
 pub struct Issuer {
     name: String,
     jurisdiction: Location

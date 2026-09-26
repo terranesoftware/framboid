@@ -1,21 +1,13 @@
 pub mod account;
+pub mod kind;
 
-use crate::account::profile::compensation::destination::address::account::Account;
+use serde::{Deserialize, Serialize};
+
+use crate::account::profile::compensation::destination::address::{account::Account, kind::AddressKind};
 
 /// An address a payment is sent to.
+#[derive(Serialize, Deserialize)]
 pub struct Address(AddressKind);
-
-/// The kind of an `Address`.
-pub enum AddressKind {
-    Ach {
-        account: String,
-        kind: Account,
-        routing: String,
-    },
-    Iban(String),
-    Pix(String),
-    Upi(String)
-}
 
 impl Address {
     /// Creates an `Address` with an ACH `AddressKind`.

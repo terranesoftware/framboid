@@ -6,9 +6,12 @@ pub mod identity;
 pub mod location;
 pub mod period;
 
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::{authorization::Authorization, compensation::Compensation, credentials::Credential, engagement::Engagement, identity::Identity};
 
 /// A set of information a person supplies about themselves.
+#[derive(Serialize, Deserialize)]
 pub struct Profile {
     authorization: Authorization,
     compensation: Compensation,

@@ -1,19 +1,13 @@
+pub mod kind;
 pub mod status;
 
-use crate::account::profile::{credentials::status::Status, location::Location};
+use serde::{Deserialize, Serialize};
+
+use crate::account::profile::{credentials::{kind::CredentialKind, status::Status}, location::Location};
 
 /// A person's credential.
+#[derive(Serialize, Deserialize)]
 pub struct Credential(CredentialKind);
-/// The kind of a `Credential`.
-pub enum CredentialKind {
-    Education {
-        degree: String,
-        discipline: String,
-        location: Location,
-        school: String,
-        status: Status
-    }
-}
 
 impl Credential {
     /// Creates a `Credential` with an education `CredentialKind`.

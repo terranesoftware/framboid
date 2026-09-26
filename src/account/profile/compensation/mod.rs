@@ -1,9 +1,12 @@
 pub mod destination;
 pub mod registration;
 
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::compensation::{destination::Destination, registration::Registration};
 
 /// A person's compensation destinations and registrations.
+#[derive(Serialize, Deserialize)]
 pub struct Compensation {
     destinations: Vec<Destination>,
     registrations: Vec<Registration>

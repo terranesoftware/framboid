@@ -1,4 +1,7 @@
+use serde::{Deserialize, Serialize};
+
 /// A place with a city, country, county, and state.
+#[derive(Serialize, Deserialize)]
 pub struct Location {
     city: String,
     country: String,

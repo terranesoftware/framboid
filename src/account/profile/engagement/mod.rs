@@ -1,9 +1,12 @@
 pub mod arrangement;
 pub mod employment;
 
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::{engagement::{arrangement::Arrangement, employment::Employment}, location::Location, period::Period};
 
 /// A person's engagement with an employer.
+#[derive(Serialize, Deserialize)]
 pub struct Engagement {
     arrangement: Arrangement,
     employer: String,

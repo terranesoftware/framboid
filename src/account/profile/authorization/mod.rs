@@ -1,8 +1,11 @@
 pub mod document;
 
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::authorization::document::Document;
 
 /// A person's set of authorizing documents.
+#[derive(Serialize, Deserialize)]
 pub struct Authorization(Vec<Document>);
 
 impl Authorization {

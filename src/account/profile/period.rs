@@ -1,7 +1,8 @@
+use serde::{Deserialize, Serialize};
 use time::Date;
 
 /// A span from a start `Date` to an optional end `Date`.
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Serialize, Deserialize)]
 pub struct Period {
     start: Date,
     end: Option<Date>

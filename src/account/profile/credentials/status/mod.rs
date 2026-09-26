@@ -1,16 +1,12 @@
-/// An education's status.
-#[derive(Clone, Copy)]
-pub struct Status(StatusKind);
+pub mod kind;
 
-/// The kind of a `Status`.
-#[derive(Clone, Copy)]
-pub enum StatusKind {
-    Completed,
-    Enrolled,
-    DroppedOut,
-    Transferred,
-    Withdrawn
-}
+use serde::{Deserialize, Serialize};
+
+use crate::account::profile::credentials::status::kind::StatusKind;
+
+/// An education's status.
+#[derive(Clone, Copy, Serialize, Deserialize)]
+pub struct Status(StatusKind);
 
 impl Status {
     /// Creates a `Status` with a completed `StatusKind`.

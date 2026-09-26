@@ -1,16 +1,12 @@
-use crate::account::profile::period::Period;
+pub mod kind;
+
+use serde::{Deserialize, Serialize};
+
+use crate::account::profile::{identity::name::usage::kind::UsageKind, period::Period};
 
 /// A way a `Name` is or was used.
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Serialize, Deserialize)]
 pub struct Usage(UsageKind);
-
-/// The kind of a `Usage`.
-#[derive(Clone, Copy)]
-pub enum UsageKind {
-    Legal,
-    Prior(Period),
-    Used
-}
 
 impl Usage {
     /// Creates a `Usage` with a legal `UsageKind`.

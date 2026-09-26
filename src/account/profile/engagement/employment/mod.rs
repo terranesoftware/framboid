@@ -1,16 +1,12 @@
-/// A form of employment.
-#[derive(Clone, Copy)]
-pub struct Employment(EmploymentKind);
+pub mod kind;
 
-/// The kind of an `Employment`.
-#[derive(Clone, Copy)]
-pub enum EmploymentKind {
-    Apprenticeship,
-    Contract,
-    Internship,
-    FullTime,
-    PartTime
-}
+use serde::{Deserialize, Serialize};
+
+use crate::account::profile::engagement::employment::kind::EmploymentKind;
+
+/// A form of employment.
+#[derive(Clone, Copy, Serialize, Deserialize)]
+pub struct Employment(EmploymentKind);
 
 impl Employment {
     /// Creates an `Employment` with an apprenticeship `EmploymentKind`.

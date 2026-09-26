@@ -1,15 +1,13 @@
 pub mod address;
+pub mod kind;
 
-use crate::account::profile::compensation::destination::address::Address;
+use serde::{Deserialize, Serialize};
+
+use crate::account::profile::compensation::destination::{address::Address, kind::DestinationKind};
 
 /// A destination for a person's compensation.
+#[derive(Serialize, Deserialize)]
 pub struct Destination(DestinationKind);
-
-/// The kind of a `Destination`.
-pub enum DestinationKind {
-    Default(Address),
-    Retirement(Address)
-}
 
 impl Destination {
     /// Creates a `Destination` with a default `DestinationKind`.

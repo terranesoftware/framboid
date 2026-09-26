@@ -1,6 +1,9 @@
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::location::Location;
 
 /// A person's registration under an external scheme.
+#[derive(Serialize, Deserialize)]
 pub struct Registration {
     // Possibly make this an enum based on feedback
     scheme: String,

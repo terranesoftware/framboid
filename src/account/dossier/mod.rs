@@ -3,13 +3,13 @@ pub mod working;
 
 use blake3::Hash;
 use indexmap::IndexMap;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use time::Timestamp;
 
 use crate::account::dossier::event::Event;
 
 /// A bounded span of events with a coherent identity.
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct Dossier {
     pub(super) events: IndexMap<Hash, Event>,
     pub(super) from: Timestamp,

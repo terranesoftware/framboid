@@ -1,14 +1,12 @@
-/// A work arrangement for an `Engagement`.
-#[derive(Clone, Copy)]
-pub struct Arrangement(ArrangementKind);
+pub mod kind;
 
-/// The kind of an `Arrangement`.
-#[derive(Clone, Copy)]
-pub enum ArrangementKind {
-    Hybrid,
-    OnSite,
-    Remote
-}
+use serde::{Deserialize, Serialize};
+
+use crate::account::profile::engagement::arrangement::kind::ArrangementKind;
+
+/// A work arrangement for an `Engagement`.
+#[derive(Clone, Copy, Serialize, Deserialize)]
+pub struct Arrangement(ArrangementKind);
 
 impl Arrangement {
     /// Creates an `Arrangement` with a hybrid `ArrangementKind`.

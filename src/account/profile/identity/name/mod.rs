@@ -1,9 +1,12 @@
 pub mod identifiers;
 pub mod usage;
 
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::identity::name::{identifiers::Identifiers, usage::Usage};
 
 /// A person's name in native and optional latin `Identifiers`.
+#[derive(Serialize, Deserialize)]
 pub struct Name {
     latin: Option<Identifiers>,
     native: Identifiers,

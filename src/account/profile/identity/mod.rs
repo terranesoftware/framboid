@@ -1,11 +1,13 @@
 pub mod address;
 pub mod name;
 
+use serde::{Deserialize, Serialize};
 use time::Date;
 
 use crate::account::profile::identity::{address::Address, name::Name};
 
 /// A person's identifying information.
+#[derive(Serialize, Deserialize)]
 pub struct Identity {
     address: Address,
     birth: Date,

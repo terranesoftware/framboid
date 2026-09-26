@@ -1,6 +1,9 @@
+use serde::{Deserialize, Serialize};
+
 use crate::account::profile::location::Location;
 
 /// A person's postal address.
+#[derive(Serialize, Deserialize)]
 pub struct Address {
     lines: Vec<String>,
     location: Location,
