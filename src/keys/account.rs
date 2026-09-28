@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use crate::keys::Key;
 
 /// An account identifier.
-#[derive(Serialize, Deserialize)]
+#[derive(Clone, Serialize, Deserialize)]
 pub struct AccountKey(String);
 
 impl Key for AccountKey {
