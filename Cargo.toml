@@ -3,7 +3,7 @@ name = "framboid"
 version = "0.7.1"
 edition = "2024"
 description = "Rust implementation of the Varve standard"
-license = "AGPL-3.0-only"
+license = "Apache-2.0"
 repository = "https://github.com/ZA1815/framboid"
 
 [dependencies]
