@@ -16,8 +16,8 @@ pub struct Varve {
     account: AccountKey,
     dossiers: IndexMap<Hash, Dossier>,
     profile: Profile,
-    from: Timestamp
-    // `to` field doesn't exist because a `Varve` never completes.
+    since: Timestamp
+    // `until` field doesn't exist because a `Varve` never completes.
 }
 
 impl Varve {
@@ -30,7 +30,7 @@ impl Varve {
             account,
             dossiers: IndexMap::new(),
             profile,
-            from: Timestamp::now()
+            since: Timestamp::now()
         }
     }
 
@@ -50,7 +50,7 @@ impl Varve {
     }
 
     /// Returns a copy of the contained origin `Timestamp`.
-    pub fn from(&self) -> Timestamp {
-        self.from
+    pub fn since(&self) -> Timestamp {
+        self.since
     }
 }

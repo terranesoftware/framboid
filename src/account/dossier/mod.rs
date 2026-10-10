@@ -12,8 +12,8 @@ use crate::account::dossier::event::Event;
 #[derive(Serialize, Deserialize)]
 pub struct Dossier {
     pub(super) events: IndexMap<Hash, Event>,
-    pub(super) from: Timestamp,
-    to: Timestamp
+    pub(super) since: Timestamp,
+    until: Timestamp
 }
 
 impl Dossier {
@@ -22,13 +22,13 @@ impl Dossier {
         &self.events
     }
 
-    /// Returns a copy of the from `Timestamp`.
-    pub fn from(&self) -> Timestamp {
-        self.from
+    /// Returns a copy of the since `Timestamp`.
+    pub fn since(&self) -> Timestamp {
+        self.since
     }
 
-    /// Returns a copy of the to `Timestamp`.
-    pub fn to(&self) -> Timestamp {
-        self.to
+    /// Returns a copy of the until `Timestamp`.
+    pub fn until(&self) -> Timestamp {
+        self.until
     }
 }

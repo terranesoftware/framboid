@@ -27,14 +27,14 @@ impl WorkingEvent {
             return Err(VarveError::DossierError(DossierError::EventError(EventError::EmptyEvent)));
         }
         
-        let from = self.0.first().unwrap().1.time;
-        let to = self.0.last().unwrap().1.time;
+        let since = self.0.first().unwrap().1.time;
+        let until = self.0.last().unwrap().1.time;
         
         Ok(
             Event {
                 actions: self.0,
-                from,
-                to
+                since,
+                until
             }
         )
     }

@@ -12,11 +12,11 @@ pub struct WorkingDossier (IndexMap<Hash, Event>);
 impl WorkingDossier {
     /// Creates a `WorkingDossier` with supplied events.
     pub fn new(mut events: Vec<Event>) -> Self {
-        events.sort_by_key(|event| event.from);
+        events.sort_by_key(|event| event.since);
         
         let mut map = IndexMap::new();
         for event in events {
-            map.insert_sorted_by_key(hash(&serialize(&event).unwrap()), event, |_, event| event.from);
+            map.insert_sorted_by_key(hash(&serialize(&event).unwrap()), event, |_, event| event.since);
         }
 
         Self (map)

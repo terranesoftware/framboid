@@ -7,7 +7,7 @@ impl Varve {
     /// Adds to the `Varve` with supplied dossiers.
     pub fn add(&mut self, dossiers: Vec<Dossier>) {
         for dossier in dossiers {
-            self.dossiers.insert_sorted_by_key(hash(&serialize(&dossier).unwrap()), dossier, |_, dossier| dossier.from);
+            self.dossiers.insert_sorted_by_key(hash(&serialize(&dossier).unwrap()), dossier, |_, dossier| dossier.since);
         }
     }
 

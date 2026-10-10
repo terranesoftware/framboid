@@ -8,7 +8,7 @@ impl WorkingDossier {
     /// Adds to the `WorkingDossier` with supplied events.
     pub fn add(&mut self, events: Vec<Event>) {
         for event in events {
-            self.0.insert_sorted_by_key(hash(&serialize(&event).unwrap()), event, |_, event| event.from);
+            self.0.insert_sorted_by_key(hash(&serialize(&event).unwrap()), event, |_, event| event.since);
         }
     }
 
@@ -23,7 +23,7 @@ impl WorkingDossier {
     }
 
     /// Completes this `WorkingDossier` by setting the start and end timestamps.
-    pub fn complete(self, from: Timestamp, to: Timestamp) -> Result<Dossier, VarveError> {
+    pub fn complete(self, since: Timestamp, until: Timestamp) -> Result<Dossier, VarveError> {
         if self.0.is_empty() {
             return Err(VarveError::DossierError(DossierError::EmptyDossier));
         }
@@ -31,8 +31,8 @@ impl WorkingDossier {
         Ok(
             Dossier {
                 events: self.0,
-                from,
-                to
+                since,
+                until
             }
         )
     }

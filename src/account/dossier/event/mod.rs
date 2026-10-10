@@ -11,8 +11,8 @@ use crate::addressing::Action;
 #[derive(Serialize, Deserialize)]
 pub struct Event {
     actions: IndexMap<Hash, Action>,
-    pub(super) from: Timestamp,
-    to: Timestamp
+    pub(super) since: Timestamp,
+    until: Timestamp
 }
 
 impl Event {
@@ -21,13 +21,13 @@ impl Event {
         &self.actions
     }
 
-    /// Returns a copy of the contained from `Timestamp`.
-    pub fn from(&self) -> Timestamp {
-        self.from
+    /// Returns a copy of the contained since `Timestamp`.
+    pub fn since(&self) -> Timestamp {
+        self.since
     }
 
-    /// Returns a copy of the contained to `Timestamp`.
-    pub fn to(&self) -> Timestamp {
-        self.to
+    /// Returns a copy of the contained until `Timestamp`.
+    pub fn until(&self) -> Timestamp {
+        self.until
     }
 }
